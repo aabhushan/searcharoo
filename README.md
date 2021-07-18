@@ -7,5 +7,6 @@ A Command-line search application
 ###Run
 
 ###Assumptions
+1. Filenames of the data map to the Search entities
 
 ###Design Decisions

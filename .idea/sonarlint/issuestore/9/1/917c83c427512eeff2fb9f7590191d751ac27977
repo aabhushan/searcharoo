@@ -1,0 +1,11 @@
+
+N
+java:S1612",Replace this lambda with a method reference.(åùâÏıÿÿÿÿ8¹ÅÉ©/
+O
+java:S1611"2Remove the parentheses around the "file" parameter(Ì¢ÃÉ8¹ÅÉ©/
+†
+java:S1488)"iImmediately return this expression instead of assigning it to the temporary variable "listOfDataObjects".(ÃÜ¸8¹ÅÉ©/
+Z
+java:S1128">Remove this unused import 'searcharoo.search.SearchEntityMap'.(êİ´8¾åÙŸ©/
+[
+java:S1611"9Remove the parentheses around the "currentFile" parameter(åùâÏıÿÿÿÿ8¹ÅÉ©/

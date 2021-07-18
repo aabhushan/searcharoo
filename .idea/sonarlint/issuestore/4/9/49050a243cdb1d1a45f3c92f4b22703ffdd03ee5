@@ -1,0 +1,15 @@
+
+I
+java:S1602	",Remove useless curly braces around statement(‰·©Ø8“êæŸ©/
+P
+java:S1611"3Remove the parentheses around the "entry" parameter(ÈÊ Ş8œÇÓ©/
+W
+java:S1118":Add a private constructor to hide the implicit public one.(´°™‡8õè½©/
+T
+java:S1611	"7Remove the parentheses around the "entityMap" parameter(‰·©Ø8“êæŸ©/
+H
+java:S1172#"&Remove these unused method parameters.(µ§¾–ùÿÿÿÿ8ÖÁ×©/
+£
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ§¾–ùÿÿÿÿ8ÖÁ×©/
+I
+java:S1602",Remove useless curly braces around statement(ÈÊ Ş8É†â©/
