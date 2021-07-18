@@ -4,12 +4,21 @@ import searcharoo.search.SearchEntityMap;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class CommandInterface {
 
-    private final String APP_NAME = "SEARCHAROO";
-    private final String WELCOME_MESSAGE = "[ WELCOME to %s ]\n".formatted(getAppName());
+    public static final String SEARCH_OPTION_BELOW = "Enter the Search option below and press enter:\n";
+    public static final String FIELD_YOU_WANT_TO_SEARCH = "Please choose the field you want to search in %s and press enter:\n";
+    public static final String ENTER_THE_VALUE_FOR_FIELD = "Please enter the value for %s and press enter:\n";
+    private static final String APP_NAME = "SEARCHAROO";
+    private static final String WELCOME_MESSAGE = "[ WELCOME to %s ]\n".formatted(APP_NAME);
+    public static final String SEARCH_RESULTS = "Search Results:\n";
+    public static final String RESULT_ITEM_SEPARATOR = "\n==================================================\n";
+    public static final String LINE_SEPARATOR = "\n--------------------------------------------------\n";
+    public static final String NO_SEARCH_RESULTS = "No Search Results.";
 
     private final InputStream inputStream;
     private final PrintStream printStream;
@@ -56,23 +65,41 @@ public class CommandInterface {
         String searchField = null;
         String searchFieldValue = null;
 
-        printStream.println("Enter the Search option below and press enter:\n");
+        printStream.println(SEARCH_OPTION_BELOW);
         printStream.println(getEntitySearchOptions());
         if (scanner.hasNext()) searchEntity = SearchEntityMap.getEntityByIndex(
                 Integer.parseInt(scanner.nextLine().trim()) - 1
         );
 
-        printStream.println("Please choose the field you want to search in %s and press enter:\n".formatted(searchEntity.toUpperCase()));
+        printStream.println(FIELD_YOU_WANT_TO_SEARCH.formatted(searchEntity.toUpperCase()));
         printStream.println(getEntityFieldSearchOptions(searchEntity));
         if (scanner.hasNext()) searchField = SearchEntityMap.getEntityFieldByIndex(
                 searchEntity,
                 Integer.parseInt(scanner.nextLine().trim()) - 1
         );
 
-        printStream.println("Please enter the value for %s and press enter:\n".formatted(searchField.toUpperCase()));
+        printStream.println(ENTER_THE_VALUE_FOR_FIELD.formatted(searchField.toUpperCase()));
         if (scanner.hasNext()) searchFieldValue = scanner.nextLine().trim();
 
-        System.out.println(SearchEntityMap.getSearchEntityFieldMap(searchEntity).get(searchField).getSearchEntityFieldValue(searchFieldValue));
+        Set<Map<String, Object>> result = SearchEntityMap.getSearchEntityFieldMap(searchEntity).get(searchField).getSearchEntityFieldValue(searchFieldValue);
+        printStream.println(formatSearchResult(result));
+        printStream.println();
+    }
+
+    String formatSearchResult(Set<Map<String, Object>> result) {
+
+        if (result == null) return NO_SEARCH_RESULTS;
+
+        StringBuilder resultStr = new StringBuilder();
+        resultStr.append(SEARCH_RESULTS);
+        result.forEach((entityObject) -> {
+            resultStr.append(RESULT_ITEM_SEPARATOR);
+            entityObject.entrySet().forEach((entry) -> {
+                resultStr.append("\n%s = %s".formatted(entry.getKey(), entry.getValue()));
+                resultStr.append(LINE_SEPARATOR);
+            });
+        });
+        return resultStr.toString();
     }
 
     public void exitCommandInterface() {

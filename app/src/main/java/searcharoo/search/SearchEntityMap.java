@@ -33,6 +33,10 @@ public class SearchEntityMap {
     }
 
     public static String getEntityFieldByIndex(String entityName, int index) {
+        List<String> entityFields = getAllEntityFields(entityName);
+
+        if(entityFields == null || entityFields.size() <= index) return null;
+
         return getAllEntityFields(entityName).get(index);
     }
 }

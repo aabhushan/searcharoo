@@ -1,6 +1,0 @@
-
-v	java:S116
-"ZRename this field "WELCOME_MESSAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“―…½8›³ως¨/
-C
-java:S1170	"!Make this final field static too.(Ϋή‹ώÿÿÿÿ8›³ως¨/
-t	java:S116	"SRename this field "APP_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ϋή‹ώÿÿÿÿ8›³ως¨/
