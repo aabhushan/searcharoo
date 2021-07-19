@@ -46,12 +46,11 @@ public class CommandInterface {
             case "1":
                 executeSearchOptions(scanner);
                 break;
-            case "2":
-                exitCommandInterface();
             default:
-                exitCommandInterface();
+                break;
 
         }
+        exitCommandInterface();
     }
 
     private void executeSearchOptions(Scanner scanner) {
