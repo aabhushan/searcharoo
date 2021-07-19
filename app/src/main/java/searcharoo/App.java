@@ -3,9 +3,9 @@
  */
 package searcharoo;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import searcharoo.data.JSONDataLoader;
 import searcharoo.ui.CommandInterface;
+import searcharoo.ui.CommandInterfaceSearchProcessor;
 
 import java.io.File;
 import java.io.InputStream;
@@ -21,8 +21,13 @@ public class App {
         File folder = new File(path);
         JSONDataLoader loader = new JSONDataLoader(folder);
         loader.loadFilesFromFolder();
+        CommandInterfaceSearchProcessor searchProcessor = new CommandInterfaceSearchProcessor(APP_PRINT_STREAM);
 
-        CommandInterface commandInterface = new CommandInterface(APP_INPUT_STREAM, APP_PRINT_STREAM);
+        CommandInterface commandInterface = new CommandInterface(
+                APP_INPUT_STREAM,
+                APP_PRINT_STREAM,
+                searchProcessor
+        );
         commandInterface.startCommandLineInterface();
     }
 }
