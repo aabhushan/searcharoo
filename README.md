@@ -8,7 +8,7 @@ Requirements: [Java SE 16](https://www.oracle.com/java/technologies/javase-jdk16
 
 ``gradle build`` on the repo directory
 
-Data files are to be added to `data` directory in the format `<entity_id>.json`
+Data files are to be added to `data` directory in the format `<entity_name>.json`
 
 ### Run
 
