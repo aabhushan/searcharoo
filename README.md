@@ -4,11 +4,15 @@ A Command-line search application
 
 ### Installation
 
-``gradle build``
+Requirements: [Java SE 16](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html), [Gradle](https://gradle.org/install/)
+
+``gradle build`` on the repo directory
+
+Data files are to be added to `data` directory in the format `<entity_id>.json`
 
 ### Run
 
-``gradle run``
+``gradle run`` on the repo directory
 
 ### Assumptions
 
